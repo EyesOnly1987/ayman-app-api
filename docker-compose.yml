@@ -1,0 +1,16 @@
+#the version of docker compose that we will use
+version: '3'
+
+#define the servies thatdefine our services
+services:
+ app:
+   build:
+     context: .
+#. is our cuurnt location
+   ports:
+     - "8000:8000"
+   volumes:
+     - ./app:/app
+   command: >
+     sh -c "python manage.py runserver 0.0.0.0:8000"
+#docker-compose.yml
