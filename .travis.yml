@@ -1,0 +1,13 @@
+#what language is the project
+#everytime we make a change we docker is going to spin up a python server
+language: python
+python:
+  - "3.6"
+
+services:
+  - docker
+
+before_script: pip install docker-compose
+#
+script:
+  - docker-compose run --rm app sh -c "python manage.py test && flake8"
